@@ -1,16 +1,31 @@
 module.exports = {
   siteMetadata: {
-    title: `Jas Coding Blog`,
-    description: `My personal blog. Sharing all about development and tech.`,
-    author: `@JassemDev`,
+    title: `Jas Coding Blog Webiste`,
+    description: `Welcome to Jas Coding Blog Webiste in here we share all about Tech, Coding news & Features.`,
+    author: `@JasCoding`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve : `gatsby-plugin-mdx`,
+      options : {
+        defaultLayouts : {
+          default : require.resolve('./src/components/layout.js')
+        }
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -24,7 +39,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/j1.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
